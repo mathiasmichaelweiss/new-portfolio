@@ -342,7 +342,7 @@ a {
 }
 
 .greeting__my__photo {
-  background-image: url(/src/img/header/Me.png);
+  background-image: url(../img/header/Me.png);
   width: 957px;
   height: 655px;
   position: absolute;
@@ -363,7 +363,7 @@ a {
   height: 130px;
   background: #212225;
   border-radius: 100%;
-  background-image: url(/src/img/icons/css_logo.svg);
+  background-image: url(../img/icons/css_logo.svg);
   background-position: center;
   -webkit-box-shadow: 0px 0px 30px rgba(32, 98, 175, 0.41);
           box-shadow: 0px 0px 30px rgba(32, 98, 175, 0.41);
@@ -385,7 +385,7 @@ a {
   width: 100px;
   height: 100px;
   background: #212225;
-  background-image: url(/src/img/icons/html_logo.svg);
+  background-image: url(../img/icons/html_logo.svg);
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 100%;
@@ -409,7 +409,7 @@ a {
   width: 170px;
   height: 170px;
   background: #212225;
-  background-image: url(/src/img/icons/js_logo.svg);
+  background-image: url(../img/icons/js_logo.svg);
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 100%;
@@ -437,7 +437,7 @@ a {
   width: 130px;
   height: 130px;
   background: #212225;
-  background-image: url(/src/img/icons/react_logo.svg);
+  background-image: url(../img/icons/react_logo.svg);
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 100%;
