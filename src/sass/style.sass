@@ -1,0 +1,209 @@
+@import 'keyframes'
+
+body
+    background-color: #212225
+
+a
+    color: #ffffff
+
+.move_block_left_to_right
+    transition: left 10s
+    left: 0
+.move__photo
+    transition: right 10s
+    right: 0
+
+.header__bg
+    background-color: #28292C
+    position:
+    z-index: 15
+
+.container
+    position: relative
+    z-index: 100
+    max-width: 1154px
+    margin: 0 auto
+    padding: 0 1rem 0 1rem
+    color: #ffffff
+
+.bold
+    font-weight: 700
+
+.header
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+    padding: 2.35rem 0 2.35rem 0
+    &__name
+        font-size: 1.7em
+        position: relative
+        bottom: -0.2rem
+    &__nav
+        width: 45%
+        ul
+            display: flex
+        &__item
+            margin-right: 2rem
+            transition: color .3s
+            position: relative
+            opacity: 0
+            transition: opacity 5s, color .5s
+            &:hover
+                color: #FF001F
+            &:after
+                animation: underlineAnimationRemove .2s linear forwards
+                display: block
+                position: absolute
+                content: ''
+                width: 100%
+                height: 3px
+                background-color: #FF001F
+            &:hover:after
+                display: block
+                position: absolute
+                content: ''
+                width: 0%
+                height: 3px
+                background-color: #FF001F
+                animation: underlineAnimation .2s linear forwards
+
+    &__social
+        display: flex
+        &__instagram
+            display: flex
+            align-items: flex-end
+            margin-right: 1rem
+            cursor: pointer
+            &:hover
+                color: #FFD500
+                svg path
+                    fill: #FFD500
+            .instagram__logo
+                display: flex
+                margin-right: 0.5rem
+        &__github
+            display: flex
+            align-items: flex-end
+            cursor: pointer
+            &:hover
+                color: #FFD500
+                svg path
+                    fill: #FFD500
+            .github__logo
+                display: flex
+                margin-right: 0.5rem
+
+.top
+    background-color: #28292C
+    box-shadow: 0px 60px 70px rgba(0, 0, 0, 0.1)
+    position: relative
+    z-index: 5
+.greeting
+    position: relative
+    left: -150%
+    padding: 259px 0 259px 0
+    width: 42%
+    font-weight: bold
+    line-height: 56px
+    animation: showBlockLeft 1s linear forwards
+    &__prof
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 1rem
+        width: 10rem
+        height: 1.9rem
+        background: #FF001F
+        border-radius: 5px
+        margin-bottom: 4rem
+    &__title
+        font-size: 3.45rem
+        margin-bottom: 3rem
+    &__write__me
+        font-size: 1.3rem
+        color: #FFD500
+        &:hover
+            text-decoration: underline
+    &__my__photo
+        background-image: url(/src/img/header/Me.png)
+        width: 957px
+        height: 655px
+        position: absolute
+        z-index: 2
+        right: -100rem
+        bottom: 0
+        animation: showBlockRight 0.5s linear forwards
+
+.css__icon
+    position: absolute
+    z-index: 1
+    top: 18%
+    left: 52%
+    z-index: 1
+    width: 130px
+    height: 130px
+    background: #212225
+    border-radius: 100%
+    background-image: url(/src/img/icons/css_logo.svg)
+    background-position: center
+    box-shadow: 0px 0px 30px rgba(32, 98, 175, 0.41)
+    animation-name: pulse
+    animation-duration: 20s
+    animation-timing-function: ease
+    animation-iteration-count: infinite
+
+.html__icon
+    position: absolute
+    z-index: 0
+    left: 84%
+    top: 40%
+    width: 100px
+    height: 100px
+    background: #212225
+    background-image: url(/src/img/icons/html_logo.svg)
+    background-repeat: no-repeat
+    background-position: center
+    border-radius: 100%
+    box-shadow: 0px 0px 30px rgba(241, 101, 41, 0.41)
+    animation-name: pulse2
+    animation-duration: 20s
+    animation-timing-function: ease
+    animation-iteration-count: infinite
+.js__icon
+    position: absolute
+    z-index: 3
+    left: 27%
+    top: 70%
+    width: 170px
+    height: 170px
+    background: #212225
+    background-image: url(/src/img/icons/js_logo.svg)
+    background-repeat: no-repeat
+    background-position: center
+    border-radius: 100%
+    box-shadow: 0px 0px 30px rgba(255, 213, 0, 0.41)
+    transition: transform 1s
+    animation-name: pulse
+    animation-duration: 20s
+    animation-timing-function: ease
+    animation-iteration-count: infinite
+.react__icon
+    position: absolute
+    z-index: 3
+    left: 85%
+    top: 65%
+    width: 130px
+    height: 130px
+    background: #212225
+    background-image: url(/src/img/icons/react_logo.svg)
+    background-repeat: no-repeat
+    background-position: center
+    border-radius: 100%
+    box-shadow: 0px 0px 30px rgba(83, 193, 222, 0.41)
+    transition: transform 1s
+    animation-name: pulse2
+    animation-duration: 20s
+    animation-timing-function: ease
+    animation-iteration-count: infinite
+
+@import 'about_skills'
