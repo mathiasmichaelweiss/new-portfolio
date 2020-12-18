@@ -76,6 +76,24 @@
   }
 }
 
+@-webkit-keyframes hiddenBlockLeft {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100rem;
+  }
+}
+
+@keyframes hiddenBlockLeft {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100rem;
+  }
+}
+
 @-webkit-keyframes showBlockRight {
   0% {
     right: -100rem;
@@ -132,6 +150,7 @@
 
 body {
   background-color: #212225;
+  height: 10000px;
 }
 
 a {
@@ -496,6 +515,15 @@ a {
   }
 }
 
+@keyframes hiddenBlockLeft {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100rem;
+  }
+}
+
 @keyframes showBlockRight {
   0% {
     right: -100rem;
@@ -533,6 +561,7 @@ a {
 
 .skills {
   position: relative;
+  left: -100rem;
   z-index: 10;
   width: 41%;
   color: #ffffff;
@@ -552,7 +581,6 @@ a {
 .skills__container {
   background-color: #28292C;
   margin-bottom: 1rem;
-  height: 10rem;
   -webkit-transition: -webkit-box-shadow .5s;
   transition: -webkit-box-shadow .5s;
   transition: box-shadow .5s;
@@ -607,6 +635,7 @@ a {
 }
 
 .skills__container .closed__show {
+  width: 3rem;
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
   padding: 1rem;
