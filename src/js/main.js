@@ -26,24 +26,27 @@ window.addEventListener('DOMContentLoaded', () => {
         /* console.log(scrollResult); */
     });
 
-
+    let isScrolled = true;
     window.addEventListener('scroll', function () {
         const about = document.querySelector('.about');
         if (window.pageYOffset >= 460) {
             addMoveClass('.skills', 'move_block_left_to_right', 'showBlockLeft .5s linear forwards');
             about.style.opacity = '1';
 
-            const isResizeble = false;
-            if (!isResizeble) {
-                const loadTime = window.setTimeout(() => {
-                    function initAccordeon() {
-                        const firstSectionBodyHeight = document.querySelector('.accordeon-section .accordeon-body > *').clientHeight;
-                        document.querySelector('.accordeon-section .accordeon-body').style.maxHeight = firstSectionBodyHeight + 'px';
-                    }
-                    initAccordeon();
-                }, 1000);
-                isRezeble = true;
+            function openAccordOnce() {
+                if (isScrolled) {
+                    const loadTime = window.setTimeout(() => {
+                        function initAccordeon() {
+                            const firstSectionBodyHeight = document.querySelector('.accordeon-section .accordeon-body > *').clientHeight;
+                            document.querySelector('.accordeon-section .accordeon-body').style.maxHeight = firstSectionBodyHeight + 'px';
+                        }
+                        initAccordeon();
+                    }, 1000);
+                }
+                isScrolled = false;
             }
+            openAccordOnce();
+            /* console.log(isScrolled); */
 
         }
         if (window.pageYOffset >= 1560) {
@@ -54,28 +57,47 @@ window.addEventListener('DOMContentLoaded', () => {
             removeMoveClass('.skills', 'move_block_left_to_right', 'hiddenBlockLeft .1s linear forwards');
             about.style.opacity = '0';
         }
-    });
 
-    +
-    function () {
+        /* animate skills */
+        const
+            skillsClasses = document.querySelector('.skills').classList,
+            skillLvl = document.querySelectorAll('.skill__lvl'),
+            accordeonSection = document.querySelectorAll('.accordeon-section');
 
-        const accordeonHeaderClickHandler = (e) => {
-            document.querySelectorAll('.accordeon-section').forEach(section => {
-                section.querySelector('.accordeon-body').style.maxHeight = '0px';
+        if (skillsClasses.contains('move_block_left_to_right')) {
+            skillLvl.forEach(item => {
+                item.setAttribute('id', 'animate__skill__ground');
             });
+        }
 
-            const
-                accordeonSection = e.target.closest('.accordeon-section'),
-                insideElHeight = accordeonSection.querySelector('.accordeon-body > *').clientHeight;
+        if (!skillsClasses.contains('move_block_left_to_right')) {
+            skillLvl.forEach(item => {
+                item.removeAttribute('id', 'animate__skill__ground');
+            });
+        }
 
-            accordeonSection.querySelector('.accordeon-body').style.maxHeight = insideElHeight + 'px';
-        };
+        /* accordion */
+        +
+        function () {
 
-        document.querySelectorAll('.accordeon-section')
-            .forEach(section => {
+            const accordeonHeaderClickHandler = (e) => {
+                document.querySelectorAll('.accordeon-section').forEach(section => {
+                    section.querySelector('.accordeon-body').style.maxHeight = '0px';
+                });
+
+                const
+                    accordeonSection = e.target.closest('.accordeon-section'),
+                    insideElHeight = accordeonSection.querySelector('.accordeon-body > *').clientHeight;
+
+                accordeonSection.querySelector('.accordeon-body').style.maxHeight = insideElHeight + 'px';
+            };
+
+            accordeonSection.forEach(section => {
                 section.addEventListener('click', accordeonHeaderClickHandler);
             });
-    }();
+        }();
+
+    });
 
 
 });

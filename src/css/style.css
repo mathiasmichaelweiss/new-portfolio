@@ -148,6 +148,22 @@
   }
 }
 
+@-webkit-keyframes AnimateSkillGround {
+  0% {
+    width: 0%;
+  }
+  100% {
+  }
+}
+
+@keyframes AnimateSkillGround {
+  0% {
+    width: 0%;
+  }
+  100% {
+  }
+}
+
 body {
   background-color: #212225;
 }
@@ -550,6 +566,14 @@ a {
   }
 }
 
+@keyframes AnimateSkillGround {
+  0% {
+    width: 0%;
+  }
+  100% {
+  }
+}
+
 .skills__about {
   position: relative;
   z-index: -1;
@@ -685,6 +709,7 @@ a {
 
 .accordeon-header .box__closed .closed__descr {
   padding: 1rem;
+  padding-bottom: 2rem;
 }
 
 .accordeon-header .box__closed .closed__show {
@@ -739,11 +764,12 @@ a {
 .accordeon-body .all__skills__container .all__skills .skill .skill__name {
   font-weight: bold;
   width: 17%;
+  margin-right: 1rem;
 }
 
 .accordeon-body .all__skills__container .all__skills .skill .skill__lvl__container {
   display: inline-block;
-  width: 13rem;
+  width: 50%;
   height: 1rem;
   background: #28292C;
   overflow: hidden;
@@ -755,8 +781,42 @@ a {
 }
 
 .accordeon-body .all__skills__container .all__skills .skill .skill__procent {
+  width: 33%;
   position: absolute;
+  text-align: right;
   right: 0;
+}
+
+.accordeon-body .all__skills__container .skills__descr {
+  padding: 1rem;
+  padding-top: 2rem;
+  line-height: 2rem;
+}
+
+#mid-width {
+  width: 20%;
+}
+
+#max-width-skill {
+  width: 38%;
+}
+
+#max-width {
+  width: 47%;
+}
+
+.color-text-orange {
+  color: #F95A2E;
+}
+
+.color-container-orange {
+  border: 1px solid #F95A2E;
+  -webkit-box-shadow: 0px 0px 30px rgba(249, 90, 46, 0.41);
+          box-shadow: 0px 0px 30px rgba(249, 90, 46, 0.41);
+}
+
+.color-skill-orange {
+  background: #F95A2E;
 }
 
 .color-text-blue1 {
@@ -775,17 +835,73 @@ a {
 }
 
 .color-text-blue2 {
-  color: #1992CE;
+  color: #53C1DE;
 }
 
 .color-container-blue2 {
-  border: 1px solid #1992CE;
-  -webkit-box-shadow: 0px 0px 30px rgba(25, 146, 206, 0.41);
-          box-shadow: 0px 0px 30px rgba(25, 146, 206, 0.41);
+  border: 1px solid #53C1DE;
+  -webkit-box-shadow: 0px 0px 30px rgba(83, 193, 222, 0.41);
+          box-shadow: 0px 0px 30px rgba(83, 193, 222, 0.41);
 }
 
 .color-skill-blue2 {
-  background: #1992CE;
+  background: #53C1DE;
+}
+
+.color-text-yellow {
+  color: #FFD500;
+}
+
+.color-container-yellow {
+  border: 1px solid #FFD500;
+  -webkit-box-shadow: 0px 9px 30px rgba(255, 213, 0, 0.41);
+          box-shadow: 0px 9px 30px rgba(255, 213, 0, 0.41);
+}
+
+.color-skill-yellow {
+  background: #FFD500;
+}
+
+.color-text-green {
+  color: #00C87B;
+}
+
+.color-container-green {
+  border: 1px solid #00C87B;
+  -webkit-box-shadow: 0px 0px 30px rgba(0, 200, 123, 0.41);
+          box-shadow: 0px 0px 30px rgba(0, 200, 123, 0.41);
+}
+
+.color-skill-green {
+  background: #00C87B;
+}
+
+.color-text-red {
+  color: #FF001F;
+}
+
+.color-container-red {
+  border: 1px solid #FF001F;
+  -webkit-box-shadow: 0px 0px 30px rgba(255, 0, 31, 0.41);
+          box-shadow: 0px 0px 30px rgba(255, 0, 31, 0.41);
+}
+
+.color-skill-red {
+  background: #FF001F;
+}
+
+.color-text-purple {
+  color: #EB6FFF;
+}
+
+.color-container-purple {
+  border: 1px solid #EB6FFF;
+  -webkit-box-shadow: 0px 0px 30px rgba(235, 111, 255, 0.41);
+          box-shadow: 0px 0px 30px rgba(235, 111, 255, 0.41);
+}
+
+.color-skill-purple {
+  background: #EB6FFF;
 }
 
 .opened {
