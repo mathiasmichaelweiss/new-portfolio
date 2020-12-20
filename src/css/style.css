@@ -212,6 +212,10 @@
   background: #FF001F;
 }
 
+.full__work {
+  padding: 0.5rem;
+}
+
 .swipe__to {
   position: absolute;
   width: 100%;
