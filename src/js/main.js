@@ -2,6 +2,28 @@
 
 window.addEventListener('DOMContentLoaded', () => {
 
+    const
+        siteWidth = document.querySelector('.container').clientWidth,
+        headerWidth = document.querySelector('.header').style.width = `${siteWidth}px`;
+
+    function anchors() {
+        const anchors = document.querySelectorAll('a[href*="#"]');
+
+        for (let anchor of anchors) {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const blockID = anchor.getAttribute('href').substr(1);
+
+                document.getElementById(blockID).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        }
+    }
+
+    anchors();
+
     const navItems = document.querySelectorAll('.header__nav__item');
 
     navItems.forEach(item => {
@@ -24,12 +46,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', function () {
         let scrollResult = window.pageYOffset;
-        /*         console.log(scrollResult); */
+        console.log(scrollResult);
     });
 
     let isScrolled = true;
     window.addEventListener('scroll', function () {
         const about = document.querySelector('.about');
+
+        if (window.pageYOffset >= 957) {
+            document.querySelector('.up').classList.add('show_up');
+        } else {
+            document.querySelector('.up').classList.remove('show_up');
+        }
+
         if (window.pageYOffset >= 460) {
             addMoveClass('.skills', 'move_block_left_to_right', 'showBlockLeft .5s linear forwards');
             about.style.opacity = '1';

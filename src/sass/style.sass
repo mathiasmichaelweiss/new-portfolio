@@ -5,6 +5,10 @@
 body
     background-color: #212225
 
+header
+    width: 100%
+    position: relative
+
 a
     color: #ffffff
 
@@ -48,11 +52,12 @@ h4
     align-items: flex-end
     padding: 2.35rem 0 2.35rem 0
     &__name
+        width: 20%
         font-size: 1.7em
         position: relative
         bottom: -0.2rem
     &__nav
-        width: 45%
+        width: 43%
         ul
             display: flex
         &__item
@@ -81,6 +86,7 @@ h4
                 animation: underlineAnimation .2s linear forwards
 
     &__social
+        width: 14%
         display: flex
         &__instagram
             display: flex
@@ -134,10 +140,11 @@ h4
         margin-bottom: 3rem
     &__write__me
         font-size: 1.3rem
-        color: #FFD500
         cursor: pointer
-        &:hover
-            text-decoration: underline
+        a
+            color: #FFD500
+            &:hover
+                text-decoration: underline
     &__my__photo
         background-image: url(../img/header/Me.png)
         width: 957px

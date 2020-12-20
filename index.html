@@ -22,16 +22,16 @@
         <div class="container">
             <!-- header -->
             <header>
-                <div class="header">
+                <div class="header" id="home">
                     <div class="header__name">
                         <a href="#"><span class="bold">Mathias</span> Michael Weiß</a>
                     </div>
                     <div class="header__nav">
                         <ul>
-                            <a class="header__nav__item" href="">About me</a>
-                            <a class="header__nav__item" href="">Skills</a>
-                            <a class="header__nav__item" href="">Works</a>
-                            <a class="header__nav__item" href="">Contacts</a>
+                            <a class="header__nav__item" href="#about" data-scroll="#home">About me</a>
+                            <a class="header__nav__item" href="#about" data-scroll="#home">Skills</a>
+                            <a class="header__nav__item" href="#works" data-scroll="#home">Works</a>
+                            <a class="header__nav__item" href="#contacts" data-scroll="#home">Contacts</a>
                         </ul>
                     </div>
                     <div class="header__social">
@@ -75,7 +75,7 @@
                     <h1>Hello World!<br> I am Mathias,<br>
                         Front-end Developer</h1>
                 </div>
-                <div class="greeting__write__me">Write me something</div>
+                <div class="greeting__write__me"><a href="#contacts">Write me something</a></div>
             </div>
             <div class="greeting__my__photo"></div>
             <div class="css__icon"></div>
@@ -84,9 +84,25 @@
             <div class="react__icon"></div>
         </div>
     </section>
-    <section class="skills__about">
+    <section class="skills__about" id="about">
         <div class="container">
             <div class="container__skills__about">
+                <a href="#home" class="up">
+                    <div class="updiv">
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M25.1774 15.225L18.0005 8.04801C15.2432 5.29117 10.7567 5.29117 7.99903 8.04822L0.822628 15.2252C-0.274169 16.322 -0.274169 18.1002 0.822628 19.1969C1.91943 20.2937 3.69787 20.2938 4.79446 19.1968L11.9708 12.0202C12.5381 11.4528 13.4616 11.4526 14.0288 12.02L21.2056 19.1968C21.754 19.7452 22.4727 20.0195 23.1916 20.0195C23.9102 20.0195 24.629 19.7453 25.1775 19.1968C26.2742 18.1001 26.2742 16.3218 25.1774 15.225Z"
+                                    fill="#FF001F" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="26" height="26" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                </a>
                 <div class="skills">
                     <div class="accordeon-section">
                         <div class="accordeon-header">
@@ -345,18 +361,18 @@
                                         <div class="skill__procent">Native speaker</div>
                                     </div>
                                     <div class="skill">
-                                        <div class="skill__name color-text-blue1">Germany</div>
+                                        <div class="skill__name color-text-blue1">German</div>
                                         <div class="skill__lvl__container color-container-blue1">
-                                            <div class="skill__lvl color-skill-blue1" style="width: 50%"></div>
+                                            <div class="skill__lvl color-skill-blue1" style="width: 61%"></div>
                                         </div>
                                         <div class="skill__procent">Intemediate</div>
                                     </div>
                                     <div class="skill">
                                         <div class="skill__name color-text-yellow">English</div>
                                         <div class="skill__lvl__container color-container-yellow">
-                                            <div class="skill__lvl color-skill-yellow" style="width: 25%"></div>
+                                            <div class="skill__lvl color-skill-yellow" style="width: 31%"></div>
                                         </div>
-                                        <div class="skill__procent">Pr-Intermediate</div>
+                                        <div class="skill__procent">Beginner</div>
                                     </div>
                                 </div>
                                 <!-- <div class="skills__descr">I am Junior Front End Developer.
@@ -420,7 +436,7 @@
     </section>
     <section class="works">
         <div class="container">
-            <h4>my works</h4>
+            <h4 id="works">my works</h4>
             <div class="container__works">
                 <div class="my-slider">
                     <div>
@@ -507,7 +523,7 @@
         </div>
 
     </section>
-    <section class="form-footer">
+    <section class="form-footer" id="contacts">
         <div class="container">
             <div class="container-title-form-footer">
                 <div class="container-title-footer">
