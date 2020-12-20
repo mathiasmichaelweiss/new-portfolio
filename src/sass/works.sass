@@ -1,0 +1,52 @@
+.works
+    margin-top: 198px
+    padding-bottom: 198px
+.container
+    &__works
+        position: relative
+        -moz-user-select: none
+        -ms-user-select: none
+        -o-user-select: none
+        -webkit-user-select: none
+.my-slider
+    padding: 7rem 0 7rem 0
+.work__item__container
+    padding: 0.1rem 0 0.1rem 0
+    max-height: 2.3rem
+    border: 1px solid #FF001F
+    transition: max-height .8s
+    overflow: hidden
+
+.work__item
+    background-color: #212225
+    transition: background .5s
+    margin: 0.3rem
+    padding: 0.4rem
+    cursor: pointer
+    &:hover
+        background: #FF001F
+
+.yellow
+    &:hover
+        background: #FFD500
+        color: #212225
+
+.on
+    background: #FF001F
+
+.full__work
+.work
+.swipe__to
+    position: absolute
+    width: 100%
+    cursor: default
+    display: flex
+    justify-content: center
+    align-items: center
+.arrow
+    background-image: url(../img/icons/left.svg)
+    background-repeat: no-repeat
+    width: 0.6rem
+    height: 0.6rem
+    &:last-child
+        background-image: url(../img/icons/right.svg)

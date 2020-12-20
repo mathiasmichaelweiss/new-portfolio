@@ -1,4 +1,5 @@
 'use strict';
+
 window.addEventListener('DOMContentLoaded', () => {
 
     const navItems = document.querySelectorAll('.header__nav__item');
@@ -23,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', function () {
         let scrollResult = window.pageYOffset;
-        /* console.log(scrollResult); */
+        /*         console.log(scrollResult); */
     });
 
     let isScrolled = true;
@@ -49,7 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
             /* console.log(isScrolled); */
 
         }
-        if (window.pageYOffset >= 1560) {
+        if (window.pageYOffset >= 2010) {
             removeMoveClass('.skills', 'move_block_left_to_right', 'hiddenBlockLeft .1s linear forwards');
             about.style.opacity = '0';
         }
@@ -77,17 +78,16 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         /* accordion */
-        +
-        function () {
+        function accordeon(addSection, addBody) {
 
             const accordeonHeaderClickHandler = (e) => {
-                document.querySelectorAll('.accordeon-section').forEach(section => {
-                    section.querySelector('.accordeon-body').style.maxHeight = '0px';
+                document.querySelectorAll(addSection).forEach(section => {
+                    section.querySelector(addBody).style.maxHeight = '0px';
                 });
 
                 const
-                    accordeonSection = e.target.closest('.accordeon-section'),
-                    insideElHeight = accordeonSection.querySelector('.accordeon-body > *').clientHeight;
+                    accordeonSection = e.target.closest(addSection),
+                    insideElHeight = accordeonSection.querySelector(`${addBody} > *`).clientHeight;
 
                 accordeonSection.querySelector('.accordeon-body').style.maxHeight = insideElHeight + 'px';
             };
@@ -95,9 +95,42 @@ window.addEventListener('DOMContentLoaded', () => {
             accordeonSection.forEach(section => {
                 section.addEventListener('click', accordeonHeaderClickHandler);
             });
-        }();
+        };
 
+        accordeon('.accordeon-section', '.accordeon-body');
     });
 
+    /* my works */
+
+    const slider = tns({
+        container: '.my-slider',
+        items: 4,
+        gutter: 33,
+        mouseDrag: true,
+        slideBy: 'page',
+        autoplay: false,
+        controls: false,
+    });
+
+    const
+        workContainer = document.querySelectorAll('.work__item__container'),
+        workItem = document.querySelectorAll('.work__item');
+
+    workContainer.forEach((item, j) => {
+        item.addEventListener('click', () => {
+            if (item.style.maxHeight == '100rem') {
+                item.style.maxHeight = '2.3rem';
+            } else {
+                item.style.maxHeight = '100rem';
+            }
+        });
+        item.setAttribute('id', j + 1);
+        for (let i = 2; i <= workContainer.length; i++) {
+            if (i % 2 == 0) {
+                workContainer[i].style = 'border: 1px solid #FFD500';
+                workItem[i].classList.add('yellow');
+            }
+        }
+    });
 
 });
