@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/about_skills.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
+    <link rel="stylesheet" href="./src/css/fadeBlock.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,7 +25,7 @@
             <header>
                 <div class="header" id="home">
                     <div class="header__name">
-                        <a href="#"><span class="bold">Mathias</span> Michael Weiß</a>
+                        <a href="index.html"><span class="bold">Mathias</span> Michael Weiß</a>
                     </div>
                     <div class="header__nav">
                         <ul>
@@ -118,14 +119,15 @@
                                         <div class="skill__lvl__container color-container-orange">
                                             <div class="skill__lvl color-skill-orange" style="width: 90%"></div>
                                         </div>
-                                        <div class="skill__procent">90%</div>
+                                        <div class="skill__procent"><span class="result">90</span>%</div>
                                     </div>
                                     <div class="skill">
                                         <div class="skill__name color-text-blue1">CSS3</div>
                                         <div class="skill__lvl__container color-container-blue1">
                                             <div class="skill__lvl color-skill-blue1" style="width: 85%"></div>
                                         </div>
-                                        <div class="skill__procent">85%</div>
+                                        <div class="skill__procent">
+                                            <span class="result">85</span>%</div>
                                     </div>
                                     <div class="skill">
                                         <div class="skill__name color-text-yellow">JS</div>
@@ -339,21 +341,21 @@
                                 <div class="all__skills">
                                     <div class="skill">
                                         <div class="skill__name color-text-orange">Russian</div>
-                                        <div class="skill__lvl__container color-container-orange">
+                                        <div class="skill__lvl__container color-container-orange" id="normal-width">
                                             <div class="skill__lvl color-skill-orange" style="width: 100%"></div>
                                         </div>
                                         <div class="skill__procent">Native speaker</div>
                                     </div>
                                     <div class="skill">
                                         <div class="skill__name color-text-blue1">German</div>
-                                        <div class="skill__lvl__container color-container-blue1">
+                                        <div class="skill__lvl__container color-container-blue1" id="normal-width">
                                             <div class="skill__lvl color-skill-blue1" style="width: 61%"></div>
                                         </div>
                                         <div class="skill__procent">Intemediate</div>
                                     </div>
                                     <div class="skill">
                                         <div class="skill__name color-text-yellow">English</div>
-                                        <div class="skill__lvl__container color-container-yellow">
+                                        <div class="skill__lvl__container color-container-yellow" id="normal-width">
                                             <div class="skill__lvl color-skill-yellow" style="width: 31%"></div>
                                         </div>
                                         <div class="skill__procent">Beginner</div>
@@ -418,7 +420,7 @@
             </div>
         </div>
     </section>
-    <section class="works">
+    <section class="works fadeBottom">
         <div class="container">
             <h4 id="works">my works</h4>
             <div class="container__works">
@@ -469,7 +471,8 @@
                         <div class="work__item__container">
                             <div class="work__item">Minimal landing page</div>
                             <div class="full__work">
-                                <a href="#" class="work">
+                                <a href="https://mathiasmichaelweiss.github.io/MINIMAL-landing-page/" class="work"
+                                    target="_blank">
                                     <img src="./src/img/works/mininmal_work.jpg" alt="" class="work"
                                         style="width: 100%;">
                                 </a>
@@ -512,7 +515,7 @@
             <div class="container-title-form-footer">
                 <div class="container-title-footer">
                     <div class="footer-title">
-                        <h2>let<span class="apostophe">'</span>s talk<span class="exm">!</span>
+                        <h2 class="fadeLeft">let<span class="apostophe">'</span>s talk<span class="exm">!</span>
                         </h2>
                     </div>
                     <div class="footer-container">
@@ -588,30 +591,31 @@
                 <div class="footer-form">
                     <div class="form__title">Say hello</div>
                     <div class="form-container">
-                        <form action="">
+                        <form action="server.php" method="" name="contact_form">
                             <div class="form-first-block">
                                 <div class="form-input">
                                     <div class="form-input-name">name</div>
-                                    <input type="text" placeholder="Your name" value="" name="name">
+                                    <input type="text" placeholder="Your name" name="name" id="name">
                                 </div>
                                 <div class="form-input">
                                     <div class="form-input-name">company</div>
-                                    <input type="text" placeholder="Your company" value="" name="company">
+                                    <input type="text" placeholder="Your company" name="company" id="company">
                                 </div>
                             </div>
                             <div class="form-second-block">
                                 <div class="form-input">
                                     <div class="form-input-name">subject</div>
-                                    <input type="text" placeholder="Choose subject" value="" name="subject">
+                                    <input type="text" placeholder="Choose subject" name="subject" id="subject">
                                 </div>
                                 <div class="form-input">
                                     <div class="form-input-name">email</div>
-                                    <input type="email" placeholder="Your email" value="" name="email">
+                                    <input type="email" placeholder="Your email" name="email" id="email">
                                 </div>
                             </div>
                             <div class="form-message">
                                 <div class="form-input-name">message</div>
-                                <textarea placeholder="Start typing here" value="" name="message" cols="20"></textarea>
+                                <textarea placeholder="Start typing here" name="message" cols="20"
+                                    id="message"></textarea>
                             </div>
                             <button class="submit">Submit</button>
                         </form>
@@ -620,23 +624,28 @@
             </div>
         </div>
     </section>
-    <a href="#home" class="up">
-        <div class="updiv">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0)">
-                    <path
-                        d="M25.1774 15.225L18.0005 8.04801C15.2432 5.29117 10.7567 5.29117 7.99903 8.04822L0.822628 15.2252C-0.274169 16.322 -0.274169 18.1002 0.822628 19.1969C1.91943 20.2937 3.69787 20.2938 4.79446 19.1968L11.9708 12.0202C12.5381 11.4528 13.4616 11.4526 14.0288 12.02L21.2056 19.1968C21.754 19.7452 22.4727 20.0195 23.1916 20.0195C23.9102 20.0195 24.629 19.7453 25.1775 19.1968C26.2742 18.1001 26.2742 16.3218 25.1774 15.225Z"
-                        fill="#FF001F" />
-                </g>
-                <defs>
-                    <clipPath id="clip0">
-                        <rect width="26" height="26" fill="white" />
-                    </clipPath>
-                </defs>
-            </svg>
-        </div>
-    </a>
-    
+
+    <div class="container">
+        <a href="#home" class="up">
+            <div class="updiv">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0)">
+                        <path
+                            d="M25.1774 15.225L18.0005 8.04801C15.2432 5.29117 10.7567 5.29117 7.99903 8.04822L0.822628 15.2252C-0.274169 16.322 -0.274169 18.1002 0.822628 19.1969C1.91943 20.2937 3.69787 20.2938 4.79446 19.1968L11.9708 12.0202C12.5381 11.4528 13.4616 11.4526 14.0288 12.02L21.2056 19.1968C21.754 19.7452 22.4727 20.0195 23.1916 20.0195C23.9102 20.0195 24.629 19.7453 25.1775 19.1968C26.2742 18.1001 26.2742 16.3218 25.1774 15.225Z"
+                            fill="#FF001F" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0">
+                            <rect width="26" height="26" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+
+    <script src="./src/js/fadeBlock.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script src="./src/js/main.js"></script>
 </body>

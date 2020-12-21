@@ -2,10 +2,6 @@
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    const
-        siteWidth = document.querySelector('.container').clientWidth,
-        headerWidth = document.querySelector('.header').style.width = `${siteWidth}px`;
-
     function anchors() {
         const anchors = document.querySelectorAll('a[href*="#"]');
 
@@ -46,14 +42,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', function () {
         let scrollResult = window.pageYOffset;
-        console.log(scrollResult);
+        /* console.log(scrollResult); */
     });
 
     let isScrolled = true;
     window.addEventListener('scroll', function () {
         const about = document.querySelector('.about');
 
-        if (window.pageYOffset >= 957) {
+        if (window.pageYOffset >= 954) {
             document.querySelector('.up').classList.add('show_up');
         } else {
             document.querySelector('.up').classList.remove('show_up');
@@ -63,6 +59,38 @@ window.addEventListener('DOMContentLoaded', () => {
             addMoveClass('.skills', 'move_block_left_to_right', 'showBlockLeft .5s linear forwards');
             about.style.opacity = '1';
 
+
+            function setValue(elem, value, inc, shift, speed) {
+                let interval = false;
+                elem.innerHTML = 0;
+                if (inc) {
+                    interval = setInterval(function () {
+                        if (elem.innerHTML * 1 + shift >= value) {
+                            elem.innerHTML = value;
+                            clearInterval(interval);
+                        } else {
+                            elem.innerHTML = elem.innerHTML * 1 + shift;
+                        }
+                    }, speed);
+                } else {
+                    interval = setInterval(function () {
+                        if (elem.innerHTML * 1 - shift <= value) {
+                            elem.innerHTML = value;
+                            clearInterval(interval);
+                        } else {
+                            elem.innerHTML = elem.innerHTML * 1 - shift;
+                        }
+                    }, speed);
+                }
+            };
+
+            const result = document.querySelectorAll('.result'),
+                resultValue = +result.textContent;
+            /* resultValue = result.values(); */
+            console.log(resultValue);
+
+            /* setValue(result, 0, false, 10, 30); */
+
             function openAccordOnce() {
                 if (isScrolled) {
                     const loadTime = window.setTimeout(() => {
@@ -70,6 +98,10 @@ window.addEventListener('DOMContentLoaded', () => {
                             const firstSectionBodyHeight = document.querySelector('.accordeon-section .accordeon-body > *').clientHeight;
                             document.querySelector('.accordeon-section .accordeon-body').style.maxHeight = firstSectionBodyHeight + 'px';
                         }
+                        result.forEach((item, i) => {
+                            /* setValue(item, resultValue, true, 1, 20); */
+                        });
+                        /* setValue(result, resultValue, true, 1, 20); */
                         initAccordeon();
                     }, 1000);
                 }
@@ -130,7 +162,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     /* my works */
-
     const slider = tns({
         container: '.my-slider',
         items: 4,
@@ -138,7 +169,7 @@ window.addEventListener('DOMContentLoaded', () => {
         mouseDrag: true,
         slideBy: 'page',
         autoplay: false,
-        controls: false,
+        controls: false
     });
 
     const
@@ -160,6 +191,30 @@ window.addEventListener('DOMContentLoaded', () => {
                 workItem[i].classList.add('yellow');
             }
         }
+    });
+
+    /* Form */
+    let button = document.querySelector('.submit');
+    console.log(button);
+
+    /*add event on the send button*/
+    button.addEventListener('click', function (event) {
+        event.preventDefault();
+        /*create object*/
+        let formData = {
+            name: document.querySelector('#name').value,
+            company: document.querySelector('#company').value,
+            subject: document.querySelector('#subject').value,
+            email: document.querySelector('#email').value,
+            message: document.querySelector('#message').value
+        };
+
+        /*transmit data*/
+        let request = new XMLHttpRequest();
+
+        request.open('POST', "server.php");
+        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.send('name=' + encodeURIComponent(formData.name) + '&company=' + encodeURIComponent(formData.company) + '&subject=' + encodeURIComponent(formData.subject) + '&email=' + encodeURIComponent(formData.email) + '&message=' + encodeURIComponent(formData.message));
     });
 
 });
