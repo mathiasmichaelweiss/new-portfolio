@@ -82,14 +82,9 @@ window.addEventListener('DOMContentLoaded', () => {
                         }
                     }, speed);
                 }
-            };
+            }
 
-            const result = document.querySelectorAll('.result'),
-                resultValue = +result.textContent;
-            /* resultValue = result.values(); */
-            console.log(resultValue);
-
-            /* setValue(result, 0, false, 10, 30); */
+            const result = document.querySelectorAll('.result');
 
             function openAccordOnce() {
                 if (isScrolled) {
@@ -99,9 +94,9 @@ window.addEventListener('DOMContentLoaded', () => {
                             document.querySelector('.accordeon-section .accordeon-body').style.maxHeight = firstSectionBodyHeight + 'px';
                         }
                         result.forEach((item, i) => {
-                            /* setValue(item, resultValue, true, 1, 20); */
+                            let resultValue = +result[i].textContent;
+                            setValue(result[i], resultValue, true, 1, 20);
                         });
-                        /* setValue(result, resultValue, true, 1, 20); */
                         initAccordeon();
                     }, 1000);
                 }

@@ -3,16 +3,14 @@
         a
             font-size: .9em
 
-@media (max-width: 991px)
+@media (max-width: 1024px)
     .header__name
         a
             font-size: .8em
     .header
         .header__nav
-            width: 32%
         .header__social
             justify-content: flex-end
-            width: 25%
 
     .container__skills__about
         .skills
@@ -42,3 +40,67 @@
         width: 27%
         textarea
             width: 89%
+
+@media (max-width: 768px)
+    section
+        overflow: hidden
+
+    .header__name
+        a
+            font-size: .7em
+    .top
+        .greeting
+            z-index: 100
+        .react__icon
+            left: 80%
+            width: 110px
+            height: 110px
+        .html__icon
+            left: 80%
+            top: 25%
+        .css__icon
+            left: 46%
+        .js__icon
+            top: 75%
+            width: 150px
+            height: 150px
+        .greeting__my__photo
+            width: 900px
+
+    .container__skills__about
+        .skills
+            font-size: 1.1em
+        .skill
+            #normal-width
+                width: 37%
+            #max-width-skill
+                width: 32%
+                margin-right: 3.5rem
+            #long-skill-name
+                width: 37%
+
+    .container-title-form-footer
+        height: 40rem
+
+    .footer-form
+        textarea
+            height: 13rem
+        .form-message
+            padding-top: 1rem
+            margin-bottom: 1rem
+        .form-input
+            input
+                margin-bottom: 3rem
+
+    .right-footer-block
+        position: absolute
+        bottom: 7rem
+
+@media (max-width: 478px)
+    .header
+        &__name
+            a
+                font-size: 1em
+        &__nav
+            display: none
+            ul
