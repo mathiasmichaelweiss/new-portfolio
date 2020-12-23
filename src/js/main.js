@@ -171,7 +171,7 @@ window.addEventListener('DOMContentLoaded', () => {
         accordeon('.accordeon-section', '.accordeon-body');
     });
 
-    
+
 
     /* my works */
     const slider = tns({
@@ -186,7 +186,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const
         workContainer = document.querySelectorAll('.work__item__container'),
-        workItem = document.querySelectorAll('.work__item');
+        workItem = document.querySelectorAll('.work__item'),
+        work = document.querySelectorAll('img.work'),
+        workInfo = document.querySelectorAll('.work-info'),
+        workBtnFill = document.querySelectorAll('.work__btn__red__fill'),
+        workBtn = document.querySelectorAll('.work__btn');
+    console.log(workBtn);
+
 
     workContainer.forEach((item, j) => {
         item.addEventListener('click', () => {
@@ -195,6 +201,32 @@ window.addEventListener('DOMContentLoaded', () => {
             } else {
                 item.style.maxHeight = '100rem';
             }
+
+            item.addEventListener('mouseover', (e) => {
+                console.log(e.target);
+                if (e.target.classList.contains('work') || e.target.classList.contains('work-info') || e.target.classList.contains('work__title') || e.target.classList.contains('work__descr') || e.target.classList.contains('work__btn') || e.target.classList.contains('work__btn__text')) {
+                    workInfo.forEach(info => {
+                        info.style = 'bottom: 10rem; opacity: 1';
+                        work[j].style = 'filter: brightness(50%); transition: transform .3s ease-in; transform: scale(1.5)';
+                    });
+                }
+            });
+            item.addEventListener('mouseout', (e) => {
+                workInfo.forEach(info => {
+                    info.style = 'bottom: -15rem; opacity: 0;bottom 0.1s ease-in, opacity 0.1s ease-in';
+                    work[j].style = 'transform: scale(1); transition: transform .3s ease-in';
+                });
+            });
+            workBtn.forEach((btn, l) => {
+                btn.addEventListener('mouseover', (e) => {
+                    workBtnFill[l].style = 'left: 0rem';
+                    workBtn[l].style = 'border: 1px solid #FF001F';
+                });
+                btn.addEventListener('mouseout', (e) => {
+                    workBtnFill[l].style = '';
+                    workBtn[l].style = '';
+                });
+            });
         });
         item.setAttribute('id', j + 1);
         for (let i = 2; i <= workContainer.length; i++) {
