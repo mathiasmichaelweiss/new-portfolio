@@ -20,6 +20,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
     anchors();
 
+    /* Paralax */
+
+    function paralaxThis(elem, trX, trY) {
+        window.addEventListener('mousemove', function (e) {
+            const paralaxItem = document.querySelector(elem);
+
+            let x = e.clientX / window.innerWidth;
+            let y = e.clientY / window.innerHeight;
+            paralaxItem.style.transform = 'translate(-' + x * trX + 'px, -' + y * trY + 'px)';
+
+        });
+    }
+
+    paralaxThis('.greeting__my__photo', 25, 2);
+
     const navItems = document.querySelectorAll('.header__nav__item');
 
     navItems.forEach(item => {
@@ -156,6 +171,8 @@ window.addEventListener('DOMContentLoaded', () => {
         accordeon('.accordeon-section', '.accordeon-body');
     });
 
+    
+
     /* my works */
     const slider = tns({
         container: '.my-slider',
@@ -190,7 +207,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     /* Form */
     let button = document.querySelector('.submit');
-    console.log(button);
 
     /*add event on the send button*/
     button.addEventListener('click', function (event) {
