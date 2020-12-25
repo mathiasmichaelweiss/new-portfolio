@@ -274,7 +274,6 @@
   position: absolute;
   top: 0;
   left: -9.5rem;
-  background: #FF001F;
   width: 100%;
   height: 100%;
   -webkit-transition: left .3s ease-in;
@@ -979,6 +978,14 @@ h4 {
           animation-timing-function: ease;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
+}
+
+.yellowBtn {
+  background: #FFD500;
+}
+
+.redBtn {
+  background: #FF001F;
 }
 
 .up {

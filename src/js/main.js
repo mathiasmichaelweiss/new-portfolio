@@ -190,11 +190,30 @@ window.addEventListener('DOMContentLoaded', () => {
         work = document.querySelectorAll('img.work'),
         workInfo = document.querySelectorAll('.work-info'),
         workBtnFill = document.querySelectorAll('.work__btn__red__fill'),
-        workBtn = document.querySelectorAll('.work__btn');
-    console.log(workBtn);
-
+        workBtn = document.querySelectorAll('.work__btn'),
+        btnFill = document.querySelectorAll('.work__btn__red__fill');
 
     workContainer.forEach((item, j) => {
+
+        item.setAttribute('id', j + 1);
+        for (let i = 2; i <= workContainer.length; i++) {
+            if (i % 2 == 0) {
+                workContainer[i].style = 'border: 1px solid #FFD500';
+                workItem[i].classList.add('yellow');
+                document.querySelectorAll('.work__title')[i].style = 'color: #FFD500';
+                console.log(document.querySelectorAll('.work__btn__red__fill')[i]);
+
+                btnFill[i].classList.add('yellowBtn');
+                btnFill.forEach(fill => {
+                    if (!fill.classList.contains('yellowBtn')) {
+                        fill.classList.add('redBtn');
+                    } else {
+                        fill.classList.remove('redBtn');
+                    }
+                });
+            }
+        }
+
         item.addEventListener('click', () => {
             if (item.style.maxHeight == '100rem') {
                 item.style.maxHeight = '2.3rem';
@@ -203,38 +222,34 @@ window.addEventListener('DOMContentLoaded', () => {
             }
 
             item.addEventListener('mouseover', (e) => {
-                console.log(e.target);
-                if (e.target.classList.contains('work') || e.target.classList.contains('work-info') || e.target.classList.contains('work__title') || e.target.classList.contains('work__descr') || e.target.classList.contains('work__btn') || e.target.classList.contains('work__btn__text')) {
-                    workInfo.forEach(info => {
-                        info.style = 'bottom: 10rem; opacity: 1';
-                        work[j].style = 'filter: brightness(50%); transition: transform .3s ease-in; transform: scale(1.5)';
-                    });
+                if (e.target.classList.contains('work') || e.target.classList.contains('work-info') || e.target.classList.contains('work__title') || e.target.classList.contains('work__descr') || e.target.classList.contains('work__btn') || e.target.classList.contains('work__btn__text') || e.target.classList.contains('work__btn__red__fill')) {
+                    work[j].style = 'filter: brightness(15%); transition: transform .3s ease-in; transform: scale(1.5);';
+                    console.log(workInfo[j]);
+                    console.log(work[j]);
+                    workInfo[j].style = 'bottom: 10rem; opacity: 1';
                 }
             });
-            item.addEventListener('mouseout', (e) => {
+            item.addEventListener('mouseout', () => {
                 workInfo.forEach(info => {
                     info.style = 'bottom: -15rem; opacity: 0;bottom 0.1s ease-in, opacity 0.1s ease-in';
                     work[j].style = 'transform: scale(1); transition: transform .3s ease-in';
                 });
             });
             workBtn.forEach((btn, l) => {
-                btn.addEventListener('mouseover', (e) => {
+                btn.addEventListener('mouseover', () => {
                     workBtnFill[l].style = 'left: 0rem';
-                    workBtn[l].style = 'border: 1px solid #FF001F';
+                    if (!btnFill[l].classList.contains('yellowBtn')) {
+                        workBtn[l].style = 'border: 1px solid #FF001F';
+                    } else {
+                        workBtn[l].style = 'border: 1px solid #FFD500';
+                    }
                 });
-                btn.addEventListener('mouseout', (e) => {
+                btn.addEventListener('mouseout', () => {
                     workBtnFill[l].style = '';
                     workBtn[l].style = '';
                 });
             });
         });
-        item.setAttribute('id', j + 1);
-        for (let i = 2; i <= workContainer.length; i++) {
-            if (i % 2 == 0) {
-                workContainer[i].style = 'border: 1px solid #FFD500';
-                workItem[i].classList.add('yellow');
-            }
-        }
     });
 
     /* Form */
