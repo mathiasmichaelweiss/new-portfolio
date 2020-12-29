@@ -64,6 +64,32 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', function () {
         const about = document.querySelector('.about');
 
+        function setValue(elem, value, inc, shift, speed) {
+            let interval = false;
+            elem.innerHTML = 0;
+            if (inc) {
+                interval = setInterval(function () {
+                    if (elem.innerHTML * 1 + shift >= value) {
+                        elem.innerHTML = value;
+                        clearInterval(interval);
+                    } else {
+                        elem.innerHTML = elem.innerHTML * 1 + shift;
+                    }
+                }, speed);
+            } else {
+                interval = setInterval(function () {
+                    if (elem.innerHTML * 1 - shift <= value) {
+                        elem.innerHTML = value;
+                        clearInterval(interval);
+                    } else {
+                        elem.innerHTML = elem.innerHTML * 1 - shift;
+                    }
+                }, speed);
+            }
+        }
+
+        const result = document.querySelectorAll('.result');
+
         if (window.pageYOffset >= 954) {
             document.querySelector('.up').classList.add('show_up');
         } else {
@@ -74,32 +100,6 @@ window.addEventListener('DOMContentLoaded', () => {
             addMoveClass('.skills', 'move_block_left_to_right', 'showBlockLeft .5s linear forwards');
             about.style.opacity = '1';
 
-
-            function setValue(elem, value, inc, shift, speed) {
-                let interval = false;
-                elem.innerHTML = 0;
-                if (inc) {
-                    interval = setInterval(function () {
-                        if (elem.innerHTML * 1 + shift >= value) {
-                            elem.innerHTML = value;
-                            clearInterval(interval);
-                        } else {
-                            elem.innerHTML = elem.innerHTML * 1 + shift;
-                        }
-                    }, speed);
-                } else {
-                    interval = setInterval(function () {
-                        if (elem.innerHTML * 1 - shift <= value) {
-                            elem.innerHTML = value;
-                            clearInterval(interval);
-                        } else {
-                            elem.innerHTML = elem.innerHTML * 1 - shift;
-                        }
-                    }, speed);
-                }
-            }
-
-            const result = document.querySelectorAll('.result');
 
             function openAccordOnce() {
                 if (isScrolled) {
@@ -171,8 +171,6 @@ window.addEventListener('DOMContentLoaded', () => {
         accordeon('.accordeon-section', '.accordeon-body');
     });
 
-
-
     /* my works */
     const slider = tns({
         container: '.my-slider',
@@ -201,7 +199,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 workContainer[i].style = 'border: 1px solid #FFD500';
                 workItem[i].classList.add('yellow');
                 document.querySelectorAll('.work__title')[i].style = 'color: #FFD500';
-                console.log(document.querySelectorAll('.work__btn__red__fill')[i]);
 
                 btnFill[i].classList.add('yellowBtn');
                 btnFill.forEach(fill => {
@@ -224,8 +221,6 @@ window.addEventListener('DOMContentLoaded', () => {
             item.addEventListener('mouseover', (e) => {
                 if (e.target.classList.contains('work') || e.target.classList.contains('work-info') || e.target.classList.contains('work__title') || e.target.classList.contains('work__descr') || e.target.classList.contains('work__btn') || e.target.classList.contains('work__btn__text') || e.target.classList.contains('work__btn__red__fill')) {
                     work[j].style = 'filter: brightness(15%); transition: transform .3s ease-in; transform: scale(1.5);';
-                    console.log(workInfo[j]);
-                    console.log(work[j]);
                     workInfo[j].style = 'bottom: 10rem; opacity: 1';
                 }
             });

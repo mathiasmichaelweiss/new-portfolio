@@ -398,6 +398,9 @@
 }
 
 .cv__text {
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
   padding-top: 0.5rem;
   color: #FFD500;
 }
