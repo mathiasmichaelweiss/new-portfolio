@@ -3,6 +3,10 @@
 @import 'footer_form'
 @import 'media'
 @import 'cv'
+@import 'solar-sustem/solar-sustem'
+@import 'projects-pages/projects-pages'
+@import 'minimal-landing/minimal-landing'
+@import 'simple-board/simple-board'
 
 body
     background-color: #212225
@@ -146,6 +150,7 @@ h4
             &:hover
                 text-decoration: underline
     &__my__photo
+
         background-image: url(../img/header/Me.png)
         width: 957px
         height: 655px
@@ -231,5 +236,21 @@ h4
     background: #FFD500
 .redBtn
     background: #FF001F
+.orangeBtn
+    background: #F95A2E
 
+.my_logo
+    position: relative
+    display: flex
+    z-index: 10
+    height: 400px
+    margin-bottom: 10rem
+    .front
+        position: absolute
+        bottom: 0
+        z-index: 9
+    .back
+        position: absolute
+        z-index: 1
+        left: 2rem
 @import 'about_skills'

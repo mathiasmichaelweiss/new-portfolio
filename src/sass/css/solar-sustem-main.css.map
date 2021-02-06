@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../solar-sustem/solar-sustem-main.sass"
+    ],
+    "names": [],
+    "file": "solar-sustem-main.css"
+}

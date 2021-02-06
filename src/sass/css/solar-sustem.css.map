@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACR,KAAK,EAAE,GAAG;EACV,gBAAgB,EAAE,6CAA6C;EAC/D,mBAAmB,EAAE,KAAK;EAC1B,mBAAmB,EAAE,MAAM;EAC3B,eAAe,EAAE,OAAO;CAAG",
+    "sources": [
+        "../solar-sustem/solar-sustem.sass"
+    ],
+    "names": [],
+    "file": "solar-sustem.css"
+}
