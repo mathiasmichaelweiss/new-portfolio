@@ -287,6 +287,7 @@
   margin: 0.21rem;
   padding: 0.4rem;
   cursor: pointer;
+  text-align: center;
 }
 
 .work__item:hover {
@@ -999,13 +1000,17 @@ body {
   background-size: contain;
 }
 
-.m-landing-img {
+.simple-board-img {
   height: 100%;
   width: 50%;
   background-image: url(../img/simple-board/simple-board-img.jpg);
   background-position: right;
   background-position: center;
   background-size: contain;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

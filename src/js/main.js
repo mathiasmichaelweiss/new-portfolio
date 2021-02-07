@@ -184,16 +184,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   /* my works */
-  const slider = tns({
-    container: ".my-slider",
-    items: 4,
-    gutter: 33,
-    mouseDrag: true,
-    slideBy: "page",
-    autoplay: false,
-    controls: false
-  });
-
   const workContainer = document.querySelectorAll(".work__item__container"),
     workItem = document.querySelectorAll(".work__item"),
     work = document.querySelectorAll("img.work"),
@@ -203,13 +193,16 @@ window.addEventListener("DOMContentLoaded", () => {
     btnFill = document.querySelectorAll(".work__btn__red__fill"),
     swpeTo = document.querySelector(".swipe__to");
 
-  swpeTo.style.display = "none";
+  function elemLength(length) {
+    swpeTo.style.display = "none";
 
-  if (workContainer.length >= 5) {
-    swpeTo.style.display = "";
+    if (workContainer.length >= length) {
+      swpeTo.style.display = "";
+    }
   }
 
-  workContainer.forEach((item, j) => {
+  function workColor(j) {
+    /* Containers color */
     if (j % 2 == 0) {
       workContainer[j].style = "border: 1px solid #FFD500";
       workItem[j].classList.add("yellow");
@@ -224,53 +217,124 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       });
     }
+  }
 
-    item.addEventListener("click", () => {
-      if (item.style.maxHeight == "100rem") {
-        item.style.maxHeight = "2.3rem";
-      } else {
-        item.style.maxHeight = "100rem";
-      }
+  function animateAndColorWorks(
+    imageTransformSpeed,
+    imageTransformScale,
+    isMobile
+  ) {
+    let mobile = isMobile;
 
-      item.addEventListener("mouseover", e => {
-        if (
-          e.target.classList.contains("work") ||
-          e.target.classList.contains("work-info") ||
-          e.target.classList.contains("work__title") ||
-          e.target.classList.contains("work__descr") ||
-          e.target.classList.contains("work__btn") ||
-          e.target.classList.contains("work__btn__text") ||
-          e.target.classList.contains("work__btn__red__fill")
-        ) {
-          work[j].style =
-            "filter: brightness(15%); transition: transform .3s ease-in; transform: scale(1.5);";
-          workInfo[j].style = "bottom: 10rem; opacity: 1";
-        }
-      });
-      item.addEventListener("mouseout", () => {
-        workInfo.forEach(info => {
-          info.style =
-            "bottom: -15rem; opacity: 0;bottom 0.1s ease-in, opacity 0.1s ease-in";
-          work[j].style =
-            "transform: scale(1); transition: transform .3s ease-in";
-        });
-      });
-      workBtn.forEach((btn, l) => {
-        btn.addEventListener("mouseover", () => {
-          workBtnFill[l].style = "left: 0rem";
-          if (!btnFill[l].classList.contains("yellowBtn")) {
-            workBtn[l].style = "border: 1px solid #FF001F";
+    if (!mobile) {
+      workContainer.forEach((item, j) => {
+        workColor(j);
+
+        item.addEventListener("click", () => {
+          if (item.style.maxHeight == "100rem") {
+            item.style.maxHeight = "2.3rem";
           } else {
-            workBtn[l].style = "border: 1px solid #FFD500";
+            item.style.maxHeight = "100rem";
           }
-        });
-        btn.addEventListener("mouseout", () => {
-          workBtnFill[l].style = "";
-          workBtn[l].style = "";
+
+          item.addEventListener("mouseover", e => {
+            if (
+              e.target.classList.contains("work") ||
+              e.target.classList.contains("work-info") ||
+              e.target.classList.contains("work__title") ||
+              e.target.classList.contains("work__descr") ||
+              e.target.classList.contains("work__btn") ||
+              e.target.classList.contains("work__btn__text") ||
+              e.target.classList.contains("work__btn__red__fill")
+            ) {
+              work[
+                j
+              ].style = `filter: brightness(15%); transition: transform ${imageTransformSpeed} ease-in; transform: scale${imageTransformScale};`;
+              workInfo[j].style = "bottom: 10rem; opacity: 1";
+            }
+          });
+          item.addEventListener("mouseout", () => {
+            workInfo.forEach(info => {
+              info.style =
+                "bottom: -15rem; opacity: 0;bottom 0.1s ease-in, opacity 0.1s ease-in";
+              work[j].style =
+                "transform: scale(1); transition: transform .3s ease-in";
+            });
+          });
+          workBtn.forEach((btn, l) => {
+            btn.addEventListener("mouseover", () => {
+              workBtnFill[l].style = "left: 0rem";
+              if (!btnFill[l].classList.contains("yellowBtn")) {
+                workBtn[l].style = "border: 1px solid #FF001F";
+              } else {
+                workBtn[l].style = "border: 1px solid #FFD500";
+              }
+            });
+            btn.addEventListener("mouseout", () => {
+              workBtnFill[l].style = "";
+              workBtn[l].style = "";
+            });
+          });
         });
       });
+    } else {
+      workContainer.forEach((item, j) => {
+        workColor(j);
+
+        item.addEventListener("click", () => {
+          if (item.style.maxHeight == "100rem") {
+            item.style.maxHeight = "2.3rem";
+          } else {
+            item.style.maxHeight = "100rem";
+          }
+
+          work[
+            j
+          ].style = `filter: brightness(15%); transition: transform ${imageTransformSpeed} ease-in; transform: scale${imageTransformScale};`;
+
+          workInfo[j].style = "bottom: 16rem; opacity: 1";
+
+          const workImage = document.querySelectorAll(".work");
+
+          workBtnFill.forEach(btn => {
+            btn.style.left = "-23rem";
+          });
+
+          workImage.forEach(work => {
+            work.style = "width: 100%; position: relative: left: 2 rem";
+          });
+        });
+      });
+    }
+  }
+
+  if (document.body.clientWidth <= 420) {
+    animateAndColorWorks(".3s", "(1.5)", true);
+    elemLength(1);
+
+    const slider = tns({
+      container: ".my-slider",
+      items: 1,
+      gutter: 0.4,
+      mouseDrag: true,
+      slideBy: "page",
+      autoplay: false,
+      controls: false
     });
-  });
+  } else {
+    animateAndColorWorks(".3s", "(1.5)", false);
+    elemLength(5);
+
+    const slider = tns({
+      container: ".my-slider",
+      items: 4,
+      gutter: 33,
+      mouseDrag: true,
+      slideBy: "page",
+      autoplay: false,
+      controls: false
+    });
+  }
 
   /* Form */
   let button = document.querySelector(".submit");
