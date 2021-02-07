@@ -288,10 +288,6 @@ window.addEventListener("DOMContentLoaded", () => {
             item.style.maxHeight = "100rem";
           }
 
-          work[
-            j
-          ].style = `filter: brightness(15%); transition: transform ${imageTransformSpeed} ease-in; transform: scale${imageTransformScale};`;
-
           workInfo[j].style = "bottom: 16rem; opacity: 1";
 
           const workImage = document.querySelectorAll(".work");
@@ -303,6 +299,10 @@ window.addEventListener("DOMContentLoaded", () => {
           workImage.forEach(work => {
             work.style = "width: 100%; position: relative: left: 2 rem";
           });
+
+          work.forEach(item => {
+            item.style.filter = "brightness(15%)";
+          });
         });
       });
     }
@@ -311,6 +311,16 @@ window.addEventListener("DOMContentLoaded", () => {
   if (document.body.clientWidth <= 420) {
     animateAndColorWorks(".3s", "(1.5)", true);
     elemLength(1);
+
+    const container = document.querySelector(".container"),
+      myPhoto = document.querySelector(".greeting__my__photo");
+
+    container.style.width = document.body.clientWidth;
+    myPhoto.style.left =
+      ((myPhoto.clientWidth / document.body.clientWidth) * 100) / 1.8 + "%";
+
+    console.log(myPhoto.clientWidth);
+    console.log((myPhoto.clientWidth / document.body.clientWidth) * 100 + "%");
 
     const slider = tns({
       container: ".my-slider",
