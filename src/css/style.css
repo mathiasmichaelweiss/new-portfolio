@@ -676,45 +676,36 @@
   .container .header__nav {
     display: none;
   }
-}
-
-.container__skills__about {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.container__skills__about .skills {
-  width: 100%;
-  font-size: 1.1em;
-  margin-bottom: 5rem;
-}
-
-.container__skills__about .skills .skill #normal-width {
-  width: 47%;
-}
-
-.container__skills__about .skills .skill #mid-width {
-  width: 25%;
-}
-
-.container__skills__about .skills .skill #max-width {
-  width: 52%;
-}
-
-.container__skills__about .skills .skill #max-width-skill {
-  width: 32%;
-}
-
-.container__skills__about .about {
-  width: 100%;
-}
-
-.container__skills__about .about .about__contant .intro__quote {
-  font-size: 1.1em;
-}
-
-.container__skills__about .about .about__contant .intro__quote .quotes {
-  font-size: 2.2rem;
+  .container__skills__about {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container__skills__about .skills {
+    width: 100%;
+    font-size: 1.1em;
+    margin-bottom: 5rem;
+  }
+  .container__skills__about .skills .skill #normal-width {
+    width: 47%;
+  }
+  .container__skills__about .skills .skill #mid-width {
+    width: 25%;
+  }
+  .container__skills__about .skills .skill #max-width {
+    width: 52%;
+  }
+  .container__skills__about .skills .skill #max-width-skill {
+    width: 32%;
+  }
+  .container__skills__about .about {
+    width: 100%;
+  }
+  .container__skills__about .about .intro__quote {
+    font-size: 1.1em;
+  }
+  .container__skills__about .about .intro__quote .quotes {
+    font-size: 2.2rem;
+  }
 }
 
 @media (max-width: 478px) {
@@ -736,11 +727,13 @@
   .form-footer .container .container-title-form-footer .footer-form {
     width: 100%;
   }
-  .left-footer-block-mobile {
+  .container .container-title-form-footer .left-footer-block-mobile {
+    display: block;
     margin-top: 2rem;
     margin-bottom: 5rem;
   }
-  .right-footer-block-mobile {
+  .container .container-title-form-footer .right-footer-block-mobile {
+    display: block;
     width: 100%;
   }
 }
@@ -1498,6 +1491,14 @@ h4 {
   position: absolute;
   z-index: 1;
   left: 2rem;
+}
+
+.left-footer-block-mobile {
+  display: none;
+}
+
+.right-footer-block-mobile {
+  display: none;
 }
 
 .up {

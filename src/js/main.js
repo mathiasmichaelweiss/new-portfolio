@@ -56,7 +56,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", function () {
     let scrollResult = window.pageYOffset;
-    /* console.log(scrollResult); */
+    console.log(scrollResult);
   });
 
   let isScrolled = true;
@@ -126,7 +126,7 @@ window.addEventListener("DOMContentLoaded", () => {
       openAccordOnce();
       /* console.log(isScrolled); */
     }
-    if (window.pageYOffset >= 2010) {
+    if (window.pageYOffset >= 2400) {
       removeMoveClass(
         ".skills",
         "move_block_left_to_right",
@@ -315,12 +315,15 @@ window.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".container"),
       myPhoto = document.querySelector(".greeting__my__photo");
 
-    container.style.width = document.body.clientWidth;
+    myPhoto.style =
+      "position: absolute; top:16%; left:50%;transform:translate(-50%, -50%);";
+
+    /* container.style.width = document.body.clientWidth;
     myPhoto.style.left =
       ((myPhoto.clientWidth / document.body.clientWidth) * 100) / 1.8 + "%";
 
     console.log(myPhoto.clientWidth);
-    console.log((myPhoto.clientWidth / document.body.clientWidth) * 100 + "%");
+    console.log((myPhoto.clientWidth / document.body.clientWidth) * 100 + "%"); */
 
     const slider = tns({
       container: ".my-slider",
@@ -348,6 +351,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   /* Form */
   let button = document.querySelector(".submit");
+
+  const message = {
+    succes: "Мы скоро с Вами свяжемся!",
+    failure: "Что-то пошло не так..."
+  };
 
   /*add event on the send button*/
   button.addEventListener("click", function (event) {
