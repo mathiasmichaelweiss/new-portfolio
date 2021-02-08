@@ -1,6 +1,16 @@
 "use strict";
 
 window.addEventListener("DOMContentLoaded", () => {
+  /* Loader */
+
+  window.onload = function () {
+    document.body.classList.add("loaded_hiding");
+    window.setTimeout(function () {
+      document.body.classList.add("loaded");
+      document.body.classList.remove("loaded_hiding");
+    }, 500);
+  };
+
   function anchors() {
     const anchors = document.querySelectorAll('a[href*="#"]');
 
@@ -32,7 +42,9 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  paralaxThis(".greeting__my__photo", 25, 2);
+  if (document.body.clientWidth > 420) {
+    paralaxThis(".greeting__my__photo", 25, 2);
+  }
 
   const navItems = document.querySelectorAll(".header__nav__item");
 
@@ -56,7 +68,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("scroll", function () {
     let scrollResult = window.pageYOffset;
-    console.log(scrollResult);
+    /* console.log(scrollResult); */
   });
 
   let isScrolled = true;
@@ -281,14 +293,30 @@ window.addEventListener("DOMContentLoaded", () => {
       workContainer.forEach((item, j) => {
         workColor(j);
 
+        work.forEach((img, n) => {
+          img.style = "width: 100%;";
+        });
+
+        document.querySelectorAll(".full__work").forEach(item => {
+          item.style = "";
+        });
+
         item.addEventListener("click", () => {
+          workInfo[j].classList.toggle("active");
+          item.classList.toggle("active");
           if (item.style.maxHeight == "100rem") {
             item.style.maxHeight = "2.3rem";
           } else {
             item.style.maxHeight = "100rem";
           }
 
-          workInfo[j].style = "bottom: 16rem; opacity: 1";
+          if (!workInfo[j].classList.contains("active")) {
+            workInfo[j].style.display = "none";
+          } else {
+            workInfo[j].style.display = "";
+            workInfo[j].style =
+              "bottom: 16rem; opacity: 1; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%";
+          }
 
           const workImage = document.querySelectorAll(".work");
 
@@ -350,7 +378,8 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   /* Form */
-  let button = document.querySelector(".submit");
+  const button = document.querySelector(".submit"),
+    form = document.querySelector("form");
 
   const message = {
     succes: "Мы скоро с Вами свяжемся!",
@@ -358,7 +387,7 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   /*add event on the send button*/
-  button.addEventListener("click", function (event) {
+  form.addEventListener("submit", function (event) {
     event.preventDefault();
     /*create object*/
     let formData = {
