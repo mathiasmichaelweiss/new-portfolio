@@ -79,9 +79,15 @@
 }
 
 @media (max-width: 478px) {
+  .container-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   .container-center .project-inner {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    padding-top: 15rem;
   }
   .container-center .project-inner-text-content {
     width: auto;
@@ -89,7 +95,22 @@
   .container-center .project-inner .project-img {
     position: inherit;
     width: 100%;
-    height: 5rem;
+  }
+  .container-center .project-inner .s-sust-img {
+    height: 20rem;
+    background-image: url(../img/solar-sustem/mobile-univese-img.jpg);
+    background-size: contain;
+  }
+  .container-center .project-inner .m-landing-img {
+    width: 100%;
+    height: 20rem;
+    background-image: url(../img/minimal-landing/m-landing.jpg);
+    background-size: contain;
+  }
+  .container-center .project-inner .simple-board-img {
+    height: 20rem;
+    background-image: url(../img/simple-board/simple-board-img.jpg);
+    background-size: contain;
   }
 }
 /*# sourceMappingURL=projects-pages.css.map */
