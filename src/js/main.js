@@ -378,45 +378,100 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   /* Form */
-  const button = document.querySelector(".submit"),
-    form = document.querySelector("form");
-
-  const message = {
-    succes: "Мы скоро с Вами свяжемся!",
-    failure: "Что-то пошло не так..."
-  };
+  const form = document.querySelector("form");
 
   /*add event on the send button*/
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    /*create object*/
-    let formData = {
-      name: document.querySelector("#name").value,
-      company: document.querySelector("#company").value,
-      subject: document.querySelector("#subject").value,
-      email: document.querySelector("#email").value,
-      message: document.querySelector("#message").value
+
+    function removeNotification(elem, remove, add, time) {
+      window.setTimeout(() => {
+        elem.classList.remove(remove);
+        elem.classList.add(add);
+      }, time);
+    }
+    const message = {
+      succes: "successfully",
+      wait: "you have already sent a message, wait a minute"
     };
+    /*create object*/
+    if (!form.classList.contains("submited")) {
+      let formData = {
+        name: document.querySelector("#name").value,
+        company: document.querySelector("#company").value,
+        subject: document.querySelector("#subject").value,
+        email: document.querySelector("#email").value,
+        message: document.querySelector("#message").value
+      };
 
-    /*transmit data*/
-    let request = new XMLHttpRequest();
+      /*transmit data*/
+      let request = new XMLHttpRequest();
 
-    request.open("POST", "server.php");
-    request.setRequestHeader(
-      "Content-type",
-      "application/x-www-form-urlencoded; charset=UTF-8"
-    );
-    request.send(
-      "name=" +
-        encodeURIComponent(formData.name) +
-        "&company=" +
-        encodeURIComponent(formData.company) +
-        "&subject=" +
-        encodeURIComponent(formData.subject) +
-        "&email=" +
-        encodeURIComponent(formData.email) +
-        "&message=" +
-        encodeURIComponent(formData.message)
-    );
+      request.open("POST", "server.php");
+      request.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded; charset=UTF-8"
+      );
+      request.send(
+        "name=" +
+          encodeURIComponent(formData.name) +
+          "&company=" +
+          encodeURIComponent(formData.company) +
+          "&subject=" +
+          encodeURIComponent(formData.subject) +
+          "&email=" +
+          encodeURIComponent(formData.email) +
+          "&message=" +
+          encodeURIComponent(formData.message)
+      );
+      form.classList.add("submited");
+
+      /* Notification */
+      const notification = document.querySelector(".notification");
+
+      notification.innerHTML = `
+        ${message.succes}
+      `;
+
+      notification.classList.remove("notification");
+      notification.classList.add("notification_start");
+
+      if (document.body.clientWidth > 420) {
+        notification.style.width = "10%";
+      }
+
+      removeNotification(
+        notification,
+        "notification_start",
+        "notification",
+        3000
+      );
+
+      const waitForm = window.setTimeout(() => {
+        form.classList.remove("submited");
+      }, 60000);
+    } else {
+      const notification = document.querySelector(".notification");
+
+      notification.innerHTML = `
+        ${message.wait}
+      `;
+
+      notification.classList.remove("notification");
+      notification.classList.add("notification_start");
+
+      if (document.body.clientWidth <= 420) {
+        notification.style.width = "90%";
+      } else {
+        notification.style.width = "30%";
+      }
+
+      removeNotification(
+        notification,
+        "notification_start",
+        "notification",
+        3000
+      );
+    }
   });
 });

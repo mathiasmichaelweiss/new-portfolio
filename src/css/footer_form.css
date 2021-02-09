@@ -1,4 +1,5 @@
 .form-footer {
+  position: relative;
   padding-bottom: 4rem;
   font-size: 1.2em;
 }
