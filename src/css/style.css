@@ -1177,6 +1177,55 @@ h4 {
   -webkit-user-select: none;
 }
 
+.lang-and-mode {
+  padding-top: 2.35rem;
+}
+
+.lang-and-mode .dark-mode {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 5rem;
+  height: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10rem;
+}
+
+.lang-and-mode .dark-mode-circle {
+  position: absolute;
+  z-index: 1000;
+  left: .2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  background-color: black;
+  border-radius: 100%;
+  background-image: url(../img/header/moon.svg);
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: center;
+  -webkit-transition: left .5s;
+  transition: left .5s;
+  cursor: pointer;
+}
+
+.lang-and-mode .dark-mode-text_on {
+  position: absolute;
+  right: 1rem;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.lang-and-mode .dark-mode-text_off {
+  position: absolute;
+  left: .8rem;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
 .move_block_left_to_right {
   -webkit-transition: left 10s;
   transition: left 10s;

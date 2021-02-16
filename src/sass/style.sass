@@ -33,6 +33,39 @@ h4
     -o-user-select: none
     -webkit-user-select: none
 
+.lang-and-mode
+    padding-top: 2.35rem
+    .dark-mode
+        position: relative
+        display: flex
+        align-items: center
+        width: 5rem
+        height: 2.5rem
+        background-color: rgba(0,0,0,.5)
+        border-radius: 10rem
+        &-circle
+            position: absolute
+            z-index: 1000
+            left: .2rem
+            width: 2.2rem
+            height: 2.2rem
+            background-color: rgba(0,0,0,1)
+            border-radius: 100%
+            background-image: url(../img/header/moon.svg)
+            background-repeat: no-repeat
+            background-size: 30%
+            background-position: center
+            transition: left .5s
+            cursor: pointer
+        &-text_on
+            position: absolute
+            right: 1rem
+            transition: opacity 1s
+        &-text_off
+            position: absolute
+            left: .8rem
+            transition: opacity 1s
+
 .move_block_left_to_right
     transition: left 10s
     left: 0

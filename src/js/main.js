@@ -11,6 +11,38 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 500);
   };
 
+  /* Dark mode */
+  const modBtn = document.querySelector(".dark-mode-circle"),
+    darkOff = document.querySelector(".dark-mode-text_off"),
+    darkOnn = document.querySelector(".dark-mode-text_on");
+
+  modBtn.addEventListener("click", () => {
+    if (!modBtn.classList.contains("modOff")) {
+      document.querySelector(".loaded").style = "background-color: #fff";
+      document.querySelector(".header__bg").style = "background-color: #fff";
+      document.querySelector(".top").style = "background-color: #fff";
+      document.querySelectorAll("a").forEach(item => {
+        item.style = "color: #000";
+      });
+
+      modBtn.style =
+        "left: 2.6rem;  background-image: url(src/img/header/sun.svg); background-size: 50%";
+      darkOff.style = "opacity: 1";
+      darkOnn.style = "opacity: 0";
+    } else {
+      document.querySelector(".loaded").style = "";
+      document.querySelector(".header__bg").style = "";
+      document.querySelector(".top").style = "";
+      document.querySelectorAll("a").forEach(item => {
+        item.style = "";
+      });
+      modBtn.style = "";
+      darkOnn.style = "opacity: 1";
+      darkOff.style = "opacity: 0";
+    }
+    modBtn.classList.toggle("modOff");
+  });
+
   function anchors() {
     const anchors = document.querySelectorAll('a[href*="#"]');
 
