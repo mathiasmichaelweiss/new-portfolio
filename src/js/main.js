@@ -1,6 +1,45 @@
 "use strict";
 
 window.addEventListener("DOMContentLoaded", () => {
+  /* Change language */
+  const langBtn = document.querySelector(".current-lang");
+
+  langBtn.addEventListener("click", () => {
+    const langMenu = document.querySelector(".change-lang-menu"),
+      langValue = document.querySelector(".langValue"),
+      allLanguages = document.querySelectorAll(".lang-btn"),
+      inAnotherLanguage = document.querySelector(".inAnotherLanguage"),
+      german = document.querySelector(".de"),
+      english = document.querySelector(".eng"),
+      russian = document.querySelector(".ru");
+
+    allLanguages.forEach(language => {
+      language.addEventListener("click", e => {
+        if (e.target.classList.contains("de")) {
+          langValue.textContent = "Deutsch";
+          inAnotherLanguage.textContent = "Sprache:";
+          german.textContent = "Deutsch";
+          english.textContent = "Englisch";
+          russian.textContent = "Russisch";
+        } else if (e.target.classList.contains("eng")) {
+          langValue.textContent = "English";
+          inAnotherLanguage.textContent = "Language:";
+          german.textContent = "German";
+          english.textContent = "English";
+          russian.textContent = "Russian";
+        } else if (e.target.classList.contains("ru")) {
+          langValue.textContent = "Русский";
+          inAnotherLanguage.textContent = "Язык:";
+          german.textContent = "Немецкий";
+          english.textContent = "Английский";
+          russian.textContent = "Русский";
+        }
+      });
+    });
+    console.log(langValue.textContent);
+
+    langMenu.classList.toggle("lm-active");
+  });
   /* Loader */
 
   window.onload = function () {
@@ -12,7 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   /* Dark mode */
-  const modBtn = document.querySelector(".dark-mode-circle"),
+  /* const modBtn = document.querySelector(".dark-mode-circle"),
     darkOff = document.querySelector(".dark-mode-text_off"),
     darkOnn = document.querySelector(".dark-mode-text_on");
 
@@ -41,7 +80,7 @@ window.addEventListener("DOMContentLoaded", () => {
       darkOff.style = "opacity: 0";
     }
     modBtn.classList.toggle("modOff");
-  });
+  }); */
 
   function anchors() {
     const anchors = document.querySelectorAll('a[href*="#"]');

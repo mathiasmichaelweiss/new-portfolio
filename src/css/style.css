@@ -1178,7 +1178,14 @@ h4 {
 }
 
 .lang-and-mode {
-  padding-top: 2.35rem;
+  position: relative;
+  height: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .lang-and-mode .dark-mode {
@@ -1224,6 +1231,50 @@ h4 {
   left: .8rem;
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
+}
+
+.lang-and-mode .lang {
+  position: absolute;
+  z-index: 1000;
+  right: 0;
+  overflow: hidden;
+  height: 10rem;
+}
+
+.lang-and-mode .lang .current-lang {
+  cursor: pointer;
+  position: relative;
+  z-index: 900;
+  background-color: #28292C;
+}
+
+.lang-and-mode .lang .change-lang-menu {
+  position: absolute;
+  z-index: 800;
+  top: -3.2rem;
+  opacity: 0;
+  text-align: right;
+  right: 0;
+  -webkit-transition: top .5s,opacity .5s;
+  transition: top .5s,opacity .5s;
+}
+
+.lang-and-mode .lang .lm-active {
+  top: 1.5rem;
+  opacity: 1;
+  -webkit-transition: top .5s,opacity .5s;
+  transition: top .5s,opacity .5s;
+}
+
+.lang-and-mode .lang .lm-active .lang-btn {
+  cursor: pointer;
+  margin-bottom: 0.3rem;
+  -webkit-transition: color .5s;
+  transition: color .5s;
+}
+
+.lang-and-mode .lang .lm-active .lang-btn:hover {
+  color: red;
 }
 
 .move_block_left_to_right {

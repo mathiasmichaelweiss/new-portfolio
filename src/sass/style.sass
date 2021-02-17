@@ -34,7 +34,10 @@ h4
     -webkit-user-select: none
 
 .lang-and-mode
-    padding-top: 2.35rem
+    position: relative
+    height: 2.5rem
+    display: flex
+    justify-content: space-between
     .dark-mode
         position: relative
         display: flex
@@ -65,7 +68,38 @@ h4
             position: absolute
             left: .8rem
             transition: opacity 1s
-
+    .lang
+        position: absolute
+        z-index: 1000
+        right: 0
+        overflow: hidden
+        height: 10rem
+        .current-lang
+            cursor: pointer
+            position: relative
+            z-index: 900
+            background-color: #28292C
+        .change-lang-menu
+            position: absolute
+            z-index: 800
+            top: -3.2rem
+            opacity: 0
+            text-align: right
+            right: 0
+            transition: top .5s,opacity .5s
+        .lm-active
+            top: 1.5rem
+            opacity: 1
+            transition: top .5s,opacity .5s
+            .lang-btn
+                cursor: pointer
+                margin-bottom: 0.3rem
+                transition: color .5s
+                &:hover
+                    color: red
+            .eng
+            .de
+            .ru
 .move_block_left_to_right
     transition: left 10s
     left: 0
